@@ -1,0 +1,92 @@
+1:
+  title: Select All Columns
+  text: >
+    Let's start by writing an SQL statement that will return every row and every column of a specific table. 
+    Assuming that a table of data exists, we can use the syntax <b class="code">SELECT * FROM table_name;</b>
+    where the * represents all columns. It is conventional to capitalize words like SELECT and FROM, but
+    you'll get the same result if they are lowercase. <br><br> Before you look at the "Your Turn" section, you're 
+    encouraged to try out the examples you see below in the console. After you finish typing, hit the ENTER key
+    and your results will appear in tabular format below the console. 
+  examples:
+    - SELECT * FROM customers;
+    - SELECT * FROM invoice_items;
+  tasks:
+    - question: Return all info from the tracks table.
+      answer: SELECT * FROM tracks;
+    - question: Return all info from the albums table.
+      answer: SELECT * FROM albums;
+    - question: Return all info from the invoices table.
+      answer: SELECT * FROM invoices;
+2:
+  title: Select One Column
+  text: >
+    Now that you know how to select all of the data from a table, let's learn how to limit the results to 
+    certain columns. We can do this using the following syntax: <b class="code">SELECT column_name FROM 
+    table_name;</b> where column_name represents the one column we want to get back.
+  examples:
+    - SELECT first_name FROM employees;
+    - SELECT composer FROM tracks;
+  tasks:
+    - question: Return only the phone numbers of the customers table.
+      answer: SELECT phone_number FROM tracks;
+    - question: Return only the titles of the albums table.
+      answer: SELECT title FROM albums;
+    - question: Return only the billing addresses of the invoices table.
+      answer: SELECT billing_address FROM invoices;
+3:
+  title: Select Multiple Columns
+  text: >
+    We can also select more than one column at a time. To do this, we'd use the following SQL statement:
+    <b class="code">SELECT first_column_name, second_column_name FROM table_name;</b> where the comma
+    separates each of the column names. You can create a comma-separated list of as many columns as you'd
+    like to get back.
+  examples:
+    - "SELECT name, composer FROM tracks;"
+    - "SELECT first_name, last_name, phone, email FROM employees;"
+  tasks:
+    - question: "Return the first name, last name, and company of every customer."
+      answer: "SELECT first_name, last_name, company FROM customers;"
+    - question: "Return the customer id and total from the invoices table."
+      answer: "SELECT customer_id, total FROM invoices;"
+    - question: "Return the bytes, milliseconds, and unit price of every track."
+      answer: "SELECT bytes, milliseconds, unit_price FROM tracks;"
+4:
+  title: Filter Data Matching Exact Condition
+  text: >
+    So far, we have only been able to filter by column. What if we want to return only rows that match a
+    specific condition? We can use WHERE to achieve that <b class="code">SELECT * FROM table_name WHERE 
+    column = condition;</b>. 
+  examples:
+    - SELECT * from customers WHERE country = "Brazil";
+    - "SELECT first_name, last_name FROM employees WHERE reports_to = 2;"
+  tasks:
+    - question: A friend of yours requests some James Brown music. Return all of the tracks where the composer is James Brown. 
+      answer: SELECT * FROM tracks WHERE composer = "James Brown";
+    - question: "In anticipation of a sale, you need to identify all tracks that are 1.99."
+      answer: SELECT * from tracks where unit_price = 1.99;
+    - question: "There's a promotion for your customers who live in France. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list."
+      answer: "SELECT first_name, last_name, phone FROM customers WHERE country = 'France';"
+5:
+  title: Filter Data With Greater/Less Than Condition
+  text: Coming Soon
+  examples:
+    - Coming Soon
+  tasks:
+    - question: Coming Soon
+      answer:
+6:
+  title: Filter Data With Partial Text Match
+  text: Coming Soon
+  examples:
+    - Coming Soon
+  tasks:
+    - question: Coming Soon
+      answer:
+
+
+
+# aliasing columns
+# ordering asc, desc
+# combining strings using || ' ' ||
+# self-referential joins
+

@@ -19,4 +19,5 @@ class Application < Sinatra::Base
   set :root, APP_ROOT
   set :views, File.join(APP_ROOT, "app", "views")
   set :public_folder, File.join(APP_ROOT, "app", "public")
+  set :server, "thin"
 end

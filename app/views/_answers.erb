@@ -1,0 +1,12 @@
+<ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">lock_open</i>Click to toggle answers</div>
+    <div class="collapsible-body white">
+      <ol>
+        <% @lesson.tasks.each_with_index do |task, i| %>
+          <li class="code"><%= i+1 %>. <%= task["answer"] %></li>
+        <% end %>
+      </ol>
+    </div>
+  </li>
+</ul>

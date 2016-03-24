@@ -1,12 +1,12 @@
-development:
-  adapter: postgresql
-  database: my_application_development
-
-production:
-  adapter: postgresql
-  database: my_application_production
-
-# Part of the workaround for using sqlite3 locally: 
 # development:
-#   adapter: sqlite3
-#   database: db/people_database_development
+#   adapter: postgresql
+#   database: my_application_development
+
+# production:
+#   adapter: postgresql
+#   database: my_application_production
+
+# # Part of the workaround for using sqlite3 locally: 
+# # development:
+# #   adapter: sqlite3
+# #   database: db/people_database_development

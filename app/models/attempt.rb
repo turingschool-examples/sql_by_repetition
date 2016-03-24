@@ -1,24 +1,36 @@
 # DB = Sequel.postgres('sqlbyrepetition.db', :host => 'localhost', :port => 5432, :max_connections => 5)
 
 class Attempt
-  def self.submit(submission)
-    submission += ";" unless submission[-1] == ";"
-    results = []
-    message = ""
-      DB.transaction do 
-        begin
-          results << DB.fetch(submission).to_a  
-        rescue Sequel::ForeignKeyConstraintViolation, Sequel::DatabaseError => e
-          message += e.to_s
-        end
-      raise Sequel::Rollback  
-    end
-
-    # [results, message(e)]
-    [results.flatten, message.empty? ? "Great job!" : message]
+  attr_reader :submission, :results, :message
+  def initialize(input)
+    @submission = format(input)
   end
 
-  def self.message(e)
-    e ? e : "Great job!"
+  def check!
+    temp_container = []
+    temp_message   = ""
+    DB.transaction do 
+      begin
+        temp_container << DB.fetch(submission).to_a  
+      rescue Sequel::ForeignKeyConstraintViolation, Sequel::DatabaseError => e
+        temp_message += e.to_s
+      end
+      raise Sequel::Rollback  
+    end
+    @results = temp_container.flatten
+    @message = temp_message
+  end
+
+  def message
+    if submission.downcase.start_with?("drop")
+      "Sorry, you do not have permission to do that."
+    else
+      @message
+    end
+  end
+
+  def format(input)
+    input += ";" unless input[-1] == ";"
+    input.gsub('"', "'")
   end
 end

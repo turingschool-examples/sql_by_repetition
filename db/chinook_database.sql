@@ -9,9 +9,15 @@
 ********************************************************************************/
 
 /*******************************************************************************
-To populate tables and data:
+To populate tables and data locally:
 
-psql -d sqlbyrepetition.db -a -f chinook_database.sql
+psql -d sqlbyrepetition.db -a -f db/chinook_database.sql
+
+To populate tables and data on Heroku:
+
+heroku pg:reset DATABASE_URL
+pg_dump sqlbyrepetition.db --no-owner --no-acl -f backup.sql
+heroku pg:psql --app sleepy-river-64960 < backup.sql 
 *******************************************************************************/
 
 /*******************************************************************************

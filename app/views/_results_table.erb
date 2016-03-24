@@ -1,0 +1,18 @@
+<% unless @attempt.nil? ||  @attempt.results.empty? %>
+  <table class="table bordered highlight responsive-table">
+    <thead>
+      <tr>
+        <% @attempt.results.first.each do |key, value| %>
+          <th class="collection-item active"><%= key %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <% @attempt.results.each do |row| %>
+    <tr>
+      <% row.each do |key, value| %>
+      <td><%= value %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+<% end %>

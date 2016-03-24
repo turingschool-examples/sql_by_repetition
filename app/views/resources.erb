@@ -1,0 +1,20 @@
+<h3>Resources</h3>
+
+If you find other helpful resources, <a href="mailto:rachelwarbelow@gmail.com?Subject=SQL%20Resources">email me</a> and I'll add them to this page. 
+
+<% @resources.each_slice(3) do |three_resources| %>
+  <div class="row">
+    <% three_resources.each do |resource| %>
+      <a href="<%= resource.url %>">
+        <div class="col s12 m4">
+          <div class="card center-align">
+            <p><b><%= resource.title %></b></p>
+            <div class="card-image photo-container">
+              <img src="/images/<%= resource.screenshot %>" alt="">
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+<% end %>

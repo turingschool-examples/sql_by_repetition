@@ -1,14 +1,40 @@
+# require "sinatra/cookies"
+
 class Application < Sinatra::Base
   get '/' do
     erb :dashboard
   end
 
-  get '/questions/:id' do |id|
-    @question = "Show all of the artists"
-    if params[:submission]
-      @data, @message = Attempt.submit(params[:submission])
-      # require 'pry'; binding.pry
+  get '/lessons' do
+    @lessons = Lesson.all
+    erb :lessons_index
+  end
+
+  get '/lessons/:id' do |id|
+    @lesson = Lesson.number(params[:id])
+    if params[:attempt]
+      @attempt = Attempt.new(params[:attempt])
+      @attempt.check!
     end
-    erb :question_show
+    erb :lesson_show, :escape_html => true
+  end
+
+  get '/playground' do
+    if params[:attempt]
+      @attempt = Attempt.new(params[:attempt])
+      @attempt.check!
+    end
+    erb :playground, :escape_html => true
+  end
+
+  get '/resources' do
+    @resources = Resource.all
+    erb :resources
+  end
+
+  helpers do
+    def h(text)
+      Rack::Utils.escape_html(text)
+    end
   end
 end

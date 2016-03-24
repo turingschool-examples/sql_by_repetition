@@ -1,0 +1,30 @@
+1:
+  title: Learn SQL the Hard Way
+  url: http://sql.learncodethehardway.org/book
+  screenshot: learn-sql-the-hard-way.jpeg
+2:
+  title: Khan Academy Intro to SQL
+  url: https://www.khanacademy.org/computing/computer-programming/sql
+  screenshot: khan-sql.jpeg
+3: 
+  title: SQL Fiddle
+  url: http://sqlfiddle.com
+  screenshot: sql-fiddle.jpeg
+4: 
+  title: SQL Zoo Tutorial
+  url: http://sqlzoo.net/wiki/SQL_Tutorial
+  screenshot: sql-zoo.jpeg
+5: 
+  title: Wikibooks SQL Exercises
+  url: https://en.wikibooks.org/wiki/SQL_Exercises
+  screenshot: wikibooks-sql-exercises.jpeg
+6: 
+  title: SQL Queries for Mere Mortals
+  url: http://buhoz.net/public/libros/languages/sql/SQL.Queries.for.Mere.Mortals.2nd.Ed.Sep.2007.pdf
+  screenshot: sql-mere-mortals.jpeg
+7: 
+  title: SQLITE Tutorial
+  url: http://www.sqlitetutorial.net/
+  screenshot: sqlite-tutorial.jpeg
+
+# http://www.shrinktheweb.com/

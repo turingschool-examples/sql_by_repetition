@@ -1,0 +1,46 @@
+<div style="padding:10px">
+  <div class="row">
+    <div class="col s6 left-align">
+      <a href="/lessons/<%= @lesson.previous_id %>"><i class="small material-icons">skip_previous</i></a>
+    </div>
+    <div class="col s6 right-align">
+      <a href="/lessons/<%= @lesson.next_id %>"><i class="small material-icons">skip_next</i></a>
+    </div>
+  </div>
+  <div class="col s10">
+    <div class="progress">
+      <div class="determinate" style="width: <%= Lesson.progress(@lesson.id) %>%"></div>
+    </div>
+  </div>
+</div>
+
+<p>LESSON <%= @lesson.id %></p>
+<h3 class="lesson-title"><%= @lesson.title %></h3>
+<p>
+  <%= @lesson.text %>
+</p>
+
+<h5>Examples</h5>
+<% @lesson.examples.each do |example| %>
+  <blockquote class="code">
+    <%= example %>
+  </blockquote>
+<% end %>
+
+<h5>Your Turn</h5>
+Write SQL statements for each of the following situations and test them out in the console. When you're done, click <i class="tiny material-icons">skip_next</i> by the progress bar. 
+  <ul class="collapsible" data-collapsible="accordion">
+  <% @lesson.tasks.each_with_index do |task, i| %>
+  <li>
+    <div class="collapsible-header"><b><%= i+1 %></b>. <%= task["question"] %></div>
+    <div class="collapsible-body white code" style="padding: 10px">
+       <b><%= task["answer"] %></b>
+    </div>
+  </li>
+  <% end %>
+</ul>
+<%= erb :_terminal %>
+<%= erb :_schema %>
+<%= erb :_results_message %>
+<%= erb :_results_table %>
+
