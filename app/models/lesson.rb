@@ -8,20 +8,24 @@ class Lesson
               :tasks
 
   def self.number(num)
-    raw_lesson_data = YAML.load_file("lib/lessons.yml").find { |key, val| key == num.to_i }
+    raw_lesson_data = raw_lessons.find { |key, val| key == num.to_i }
     id = raw_lesson_data.first
     lesson_data = raw_lesson_data.last
     new(id, lesson_data)
   end
 
   def self.all 
-    YAML.load_file("lib/lessons.yml").map do |raw_lesson_data|
+    raw_lessons.map do |raw_lesson_data|
       new(raw_lesson_data.first, raw_lesson_data.last)
     end
   end
 
   def self.total
-    YAML.load_file("lib/lessons.yml").count
+    raw_lessons.count
+  end
+
+  def self.raw_lessons
+    YAML.load_file("lib/lessons.yml")
   end
 
   def self.progress(id)

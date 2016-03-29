@@ -1,5 +1,3 @@
-# require "sinatra/cookies"
-
 class Application < Sinatra::Base
   get '/' do
     erb :dashboard

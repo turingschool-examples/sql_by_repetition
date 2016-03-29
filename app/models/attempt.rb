@@ -1,5 +1,3 @@
-# DB = Sequel.postgres('sqlbyrepetition.db', :host => 'localhost', :port => 5432, :max_connections => 5)
-
 class Attempt
   attr_reader :submission, :results, :message
   def initialize(input)
