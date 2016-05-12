@@ -1,12 +1,12 @@
 1:
   title: Select All Columns
   text: >
-    Let's start by writing an SQL statement that will return every row and every column of a specific table. 
+    Let's start by writing an SQL statement that will return every row and every column of a specific table.
     Assuming that a table of data exists, we can use the syntax <b class="code">SELECT * FROM table_name;</b>
     where the * represents all columns. It is conventional to capitalize words like SELECT and FROM, but
-    you'll get the same result if they are lowercase. <br><br> Before you look at the "Your Turn" section, you're 
+    you'll get the same result if they are lowercase. <br><br> Before you look at the "Your Turn" section, you're
     encouraged to try out the examples you see below in the console. After you finish typing, hit the ENTER key
-    and your results will appear in tabular format below the console. 
+    and your results will appear in tabular format below the console.
   examples:
     - SELECT * FROM customers;
     - SELECT * FROM invoice_items;
@@ -17,11 +17,17 @@
       answer: SELECT * FROM albums;
     - question: Return all info from the invoices table.
       answer: SELECT * FROM invoices;
+    - question: Return all info from the artists table.
+      answer: SELECT * FROM invoices;
+    - question: Return all info from the customers table.
+      answer: SELECT * FROM invoices;
+    - question: Return all info from the employees table.
+      answer: SELECT * FROM invoices;
 2:
   title: Select One Column
   text: >
-    Now that you know how to select all of the data from a table, let's learn how to limit the results to 
-    certain columns. We can do this using the following syntax: <b class="code">SELECT column_name FROM 
+    Now that you know how to select all of the data from a table, let's learn how to limit the results to
+    certain columns. We can do this using the following syntax: <b class="code">SELECT column_name FROM
     table_name;</b> where column_name represents the one column we want to get back.
   examples:
     - SELECT first_name FROM employees;
@@ -33,6 +39,14 @@
       answer: SELECT title FROM albums;
     - question: Return only the billing addresses of the invoices table.
       answer: SELECT billing_address FROM invoices;
+    - question: Return only the artists name from the artists table.
+      answer: SELECT name FROM artists;
+    - question: Return only the albums title from the albums table.
+      answer: SELECT title FROM albums;
+    - question: Return only the playlists name from the playlist table.
+      answer: SELECT name FROM playlists;
+    - question: Return only the composer from the tracks table.
+      answer: SELECT composer FROM tracks;
 3:
   title: Select Multiple Columns
   text: >
@@ -50,30 +64,34 @@
       answer: "SELECT customer_id, total FROM invoices;"
     - question: "Return the bytes, milliseconds, and unit price of every track."
       answer: "SELECT bytes, milliseconds, unit_price FROM tracks;"
+    - question: "Return the unit price and quantity of every invoice item."
+      answer: "SELECT unit_price, quantity FROM invoice_items;"
 4:
   title: Filter Data Matching Exact Condition
   text: >
     So far, we have only been able to filter by column. What if we want to return only rows that match a
-    specific condition? We can use WHERE to achieve that <b class="code">SELECT * FROM table_name WHERE 
-    column = condition;</b>. 
+    specific condition? We can use WHERE to achieve that <b class="code">SELECT * FROM table_name WHERE
+    column = condition;</b>.
   examples:
     - SELECT * from customers WHERE country = "Brazil";
     - "SELECT first_name, last_name FROM employees WHERE reports_to = 2;"
   tasks:
-    - question: A friend of yours requests some James Brown music. Return all of the tracks where the composer is James Brown. 
+    - question: A friend of yours requests some James Brown music. Return all of the tracks where the composer is James Brown.
       answer: SELECT * FROM tracks WHERE composer = "James Brown";
     - question: "In anticipation of a sale, you need to identify all tracks that are 1.99."
       answer: SELECT * from tracks where unit_price = 1.99;
     - question: "There's a promotion for your customers who live in France. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list."
       answer: "SELECT first_name, last_name, phone FROM customers WHERE country = 'France';"
+    - question: "There's a promotion for your customers who live in Ontario, Canada. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list."
+      answer: "SELECT first_name, last_name, phone FROM customers WHERE state = 'ON';"
+    - question: "There was a shipping mixup and every customer in the state of Arizona needs to be notified right away. Return the first name, last name and phone number of all customers in Arizona so they can be notified ASAP!"
+      answer: "SELECT first_name, last_name, phone_number FROM customers WHERE state = 'AZ';"
 5:
   title: Filter Data With Greater/Less Than Condition
   text: Coming Soon
   examples:
     - Coming Soon
   tasks:
-    - question: Coming Soon
-      answer:
 6:
   title: Filter Data With Partial Text Match
   text: Coming Soon
@@ -89,4 +107,3 @@
 # ordering asc, desc
 # combining strings using || ' ' ||
 # self-referential joins
-
