@@ -34,7 +34,7 @@
     - SELECT composer FROM tracks;
   tasks:
     - question: Return only the phone numbers of the customers table.
-      answer: SELECT phone_number FROM tracks;
+      answer: SELECT phone FROM customers;
     - question: Return only the titles of the albums table.
       answer: SELECT title FROM albums;
     - question: Return only the billing addresses of the invoices table.
