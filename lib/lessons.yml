@@ -172,7 +172,6 @@
       answer: SELECT * FROM tracks WHERE name LIKE '%way%';
 
 
-
 # aliasing columns
 # ordering asc, desc
 # combining strings using || ' ' ||
