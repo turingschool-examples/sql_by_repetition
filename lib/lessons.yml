@@ -79,16 +79,6 @@
     - question: "Return first name, last name, title, and email address from the employees table."
       answer: "SELECT fist_name, last_name, title, email_address from employees;"
 4:
-  title:
-  text: >
-    TEXT TEXT TEXT
-  examples:
-    - Coming Soon
-    - Coming Soon
-  tasks:
-    - question: Coming Soon
-      answer:
-5:
   title: Filter Data Matching Exact Condition
   text: >
     So far, we have only been able to filter by column. What if we want to return only rows that match a
@@ -100,14 +90,27 @@
   tasks:
     - question: A friend of yours requests some James Brown music. Return all of the tracks where the composer is James Brown.
       answer: SELECT * FROM tracks WHERE composer = "James Brown";
-    - question: "In anticipation of a sale, you need to identify all tracks that are 1.99."
+    - question: In anticipation of a sale, you need to identify all tracks that are 1.99.
       answer: SELECT * from tracks where unit_price = 1.99;
-    - question: "There's a promotion for your customers who live in France. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list."
-      answer: "SELECT first_name, last_name, phone FROM customers WHERE country = 'France';"
-    - question: "There's a promotion for your customers who live in Ontario, Canada. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list."
-      answer: "SELECT first_name, last_name, phone FROM customers WHERE state = 'ON';"
-    - question: "There was a shipping mixup and every customer in the state of Arizona needs to be notified right away. Return the first name, last name and phone number of all customers in Arizona so they can be notified ASAP!"
-      answer: "SELECT first_name, last_name, phone_number FROM customers WHERE state = 'AZ';"
+    - question: There's a promotion for your customers who live in France. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list.
+      answer: SELECT first_name, last_name, phone FROM customers WHERE country = 'France';
+    - question: There's a promotion for your customers who live in Ontario, Canada. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list.
+      answer: SELECT first_name, last_name, phone FROM customers WHERE state = 'ON';
+    - question: There was a shipping mixup and every customer in the state of Arizona needs to be notified right away. Return the first name, last name and phone number of all customers in Arizona so they can be notified ASAP!
+      answer: SELECT first_name, last_name, phone_number FROM customers WHERE state = 'AZ';
+5:
+  title: Calculation Functions
+  text: >
+    We've been returning the exact data specified by our search query up to this point. But what if we
+    want to return data a calculation of some subset of data within out database like the number of rows
+    returned by a query, or the average total of all our invoices? We can use sql functions like COUNT() and AVG()
+    to find these values. <b class="code">SELECT AVG(column_name) FROM table_name;</b>.
+  examples:
+      - SELECT COUNT(*) FROM artists;
+      - SELECT AVG(price) FROM invoices;
+  tasks:
+      - question:
+        answer:
 6:
   title: Filter Data With Greater/Less Than Condition
   text: Coming Soon
