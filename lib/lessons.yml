@@ -144,7 +144,6 @@
 
 
 
-# calculations - COUNT SUM LENGTH AVG FIRST LAST MIN MAX
 # aliasing columns
 # ordering asc, desc
 # combining strings using || ' ' ||
