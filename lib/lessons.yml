@@ -18,11 +18,13 @@
     - question: Return all info from the invoices table.
       answer: SELECT * FROM invoices;
     - question: Return all info from the artists table.
-      answer: SELECT * FROM invoices;
+      answer: SELECT * FROM artists;
     - question: Return all info from the customers table.
-      answer: SELECT * FROM invoices;
+      answer: SELECT * FROM customers;
     - question: Return all info from the employees table.
-      answer: SELECT * FROM invoices;
+      answer: SELECT * FROM employees;
+    - question: Return all info from the genres table.
+      answer: SELECT * FROM genres;
 2:
   title: Select One Column
   text: >
@@ -47,6 +49,12 @@
       answer: SELECT name FROM playlists;
     - question: Return only the composer from the tracks table.
       answer: SELECT composer FROM tracks;
+    - question: Return only the playlists name from the playlists table.
+      answer: SELECT name FROM playlists;
+    - question: Return only the last names from the customers table.
+      answer: SELECT last_name FROM customer;
+    - question: Return only the title of the employees from the employees table.
+      answer: SELECT title FROM employees;
 3:
   title: Select Multiple Columns
   text: >
@@ -66,6 +74,10 @@
       answer: "SELECT bytes, milliseconds, unit_price FROM tracks;"
     - question: "Return the unit price and quantity of every invoice item."
       answer: "SELECT unit_price, quantity FROM invoice_items;"
+    - question: "Return the album title and artist_id from the albums table."
+      answer: "SELECT title, artist_id FROM albums;"
+    - question: "Return first name, last name, title, and email address from the employees table."
+      answer: "SELECT fist_name, last_name, title, email_address from employees;"
 4:
   title: Filter Data Matching Exact Condition
   text: >
