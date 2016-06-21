@@ -127,20 +127,49 @@
       answer: SELECT SUM(total) FROM invoices;
 6:
   title: Filter Data With Greater/Less Than Condition
-  text: Coming Soon
+  text: >
+    Sometimes we want to scope down our query to a subset of data based on it's relation (larger or smaller) to a particular value. To do this we will
+    use the WHERE clause and either a greater than (>), less than (<).  <b class="code">SELECT column_name FROM table_name WHERE column_name < condition ;</b>.
   examples:
-    - Coming Soon
+    - SELECT * FROM tracks WHERE milliseconds < 30000;
+    - SELECT name FROM artists WHERE LENGTH(name) < 4;
   tasks:
-    - question: Coming Soon
-      answer: .
+    - question: Find all tracks that are shorter than 1 minute (60000 milliseconds)
+      answer: SELECT * FROM tracks WHERE milliseconds < 60000;
+    - question: Find all employees born before Feburary 18th 1962. ('1962-02-18')
+      answer: SELECT * FROM employees WHERE birth_date < '1962-02-18';
+    - question: Find all employees born after Febuary 18th 1962. ('1962-02-18')
+      answer: SELECT * FROM employees WHERE birth_date > '1962-02-18';
+    - question: Find all Artists who have a name shorter than 5 characters. (HINT LENGTH())
+      answer: SELECT * FROM artists WHERE LENGTH(name) < 5;
+    - question: Find all Artists who have a name longer than 80 characters. (HINT LENGTH())
+      answer: SELECT * FROM artists WHERE LENGTH(name) > 80;
+    - question: Find all employees first and last names that where hired after January 1st 2004. (HINT '2004-01-01')
+      answer: SELECT first_name, last_name FROM employees WHERE date_hired > '2004-01-01';
 7:
   title: Filter Data With Partial Text Match
-  text: Coming Soon
+  text: >
+    There are times that we want to structure a query for a partial match of text. Maybe we want all customers with a last name starting
+    with a particular letter, or maybe we're not sure exactly how a thing is spelled. There are various reasons why we would want to query something
+    based on a partial text match. To do this we can use WHERE and LIKE together to find data based on partial text. We use LIKE along with '%' or wildcards.
+    The wilcard states that any values can go in place of the '%'. For example if I want a query to return 'cat' or 'cap' I would use LIKE 'ca%'. Or if you
+    want to find all data that starts with a particular letter (T) we would use LIKE 'T%' <b class="code">SELECT column_name FROM table_name WHERE column_name LIKE '%condition%' ;</b>.
   examples:
-    - Coming Soon
+    - SELECT name FROM artists WHERE name LIKE 'N%'
+    - SELECT email FROM employees WHERE last_name LIKE 'C%';
   tasks:
-    - question: Coming Soon
-      answer: .
+    - question: We want email addresses back for all customers that have a last name that starts with a T.
+      answer: SELECT email FROM customers WHERE last_name LIKE 'T%';
+    - question: Can you return all artists that have a name that starts with a 'S'
+      answer: SELECT * FROM artists WHERE name LIKE 'S%';
+    - question: Can you find all artists that have an 'ay' anywhere in their name.
+      answer: SELECT * FROM artists WHERE name LIKE '%ay%';
+    - question: Can you find all the customers that have an email address that ends with 'gmail.com'
+      answer: SELECT * FROM customers WHERE email LIKE '%gmail.com';
+    - question: Can you return all the playlists that are titled with Classical in the name.
+      answer: SELECT * FROM playlists WHERE name LIKE '%Classical%';
+    - question: Find all tracks that have a name that contain 'way' anwhere within the name.
+      answer: SELECT * FROM tracks WHERE name LIKE '%way%';
 
 
 
