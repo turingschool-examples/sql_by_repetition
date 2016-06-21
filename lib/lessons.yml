@@ -86,7 +86,7 @@
     column = condition;</b>.
   examples:
     - SELECT * from customers WHERE country = "Brazil";
-    - "SELECT first_name, last_name FROM employees WHERE reports_to = 2;"
+    - SELECT first_name, last_name FROM employees WHERE reports_to = 2;
   tasks:
     - question: A friend of yours requests some James Brown music. Return all of the tracks where the composer is James Brown.
       answer: SELECT * FROM tracks WHERE composer = "James Brown";
@@ -106,11 +106,25 @@
     returned by a query, or the average total of all our invoices? We can use sql functions like COUNT() and AVG()
     to find these values. <b class="code">SELECT AVG(column_name) FROM table_name;</b>.
   examples:
-      - SELECT COUNT(*) FROM artists;
-      - SELECT AVG(price) FROM invoices;
+    - SELECT COUNT(*) FROM artists;
+    - SELECT AVG(price) FROM invoices;
   tasks:
-      - question:
-        answer:
+    - question: We need to know the number of employees. Return the number of employees in the employees table
+      answer: SELECT COUNT(*) FROM employees;
+    - question: A potential customer want's to know how many artists are tracked in our databse. Return the number of artists that are in the artist table.
+      answer: SELECT COUNT(*) FROM artists;
+    - question: The CEO want's to know how many customers we have. Return the number of customers in the database.
+      answer: SELECT COUNT(*) FROM customers;
+    - question: Now, the CEO want's to know how many customers there are only in Arizona. Return the number of customers in the state of AZ. (HINT Combine use filtering with exact match condition on a calucation function)
+      answer: SELECT COUNT(*) FROM customers WHERE state = 'AZ';
+    - question: We need to know the average length(milliseconds) of all tracks.
+      answer: SELECT AVG(millisecond) FROM tracks;
+    - question: We need to know the shortest track we have. (HINT length(milliseconds) of all tracks).
+      answer: SELECT MIN(millisecond) FROM tracks;
+    - question: We need to know the longest track we have. (HINT length(milliseconds) of all tracks).
+      answer: SELECT MAX(millisecond) FROM tracks;
+    - question: How much revenue have we had so far? Let's return the sum of all invoices in our databse.
+      answer: SELECT SUM(total) FROM invoices;
 6:
   title: Filter Data With Greater/Less Than Condition
   text: Coming Soon
@@ -118,7 +132,7 @@
     - Coming Soon
   tasks:
     - question: Coming Soon
-      answer:
+      answer: .
 7:
   title: Filter Data With Partial Text Match
   text: Coming Soon
@@ -126,7 +140,7 @@
     - Coming Soon
   tasks:
     - question: Coming Soon
-      answer:
+      answer: .
 
 
 
