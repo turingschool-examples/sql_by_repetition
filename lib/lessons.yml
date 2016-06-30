@@ -170,7 +170,7 @@
       answer: SELECT * FROM playlists WHERE name LIKE '%Classical%';
     - question: Find all tracks that have a name that contain 'way' anwhere within the name.
       answer: SELECT * FROM tracks WHERE name LIKE '%way%';
-
+      
 
 # aliasing columns
 # ordering asc, desc
