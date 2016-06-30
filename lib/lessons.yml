@@ -36,7 +36,7 @@
     - SELECT composer FROM tracks;
   tasks:
     - question: Return only the phone numbers of the customers table.
-      answer: SELECT phone_number FROM tracks;
+      answer: SELECT phone FROM customers;
     - question: Return only the titles of the albums table.
       answer: SELECT title FROM albums;
     - question: Return only the billing addresses of the invoices table.
@@ -97,7 +97,6 @@
     - question: There's a promotion for your customers who live in Ontario, Canada. Return the first name, last name, and phone number of the customers you'll add to the telemarketing list.
       answer: SELECT first_name, last_name, phone FROM customers WHERE state = 'ON';
     - question: There was a shipping mixup and every customer in the state of Arizona needs to be notified right away. Return the first name, last name and phone number of all customers in Arizona so they can be notified ASAP!
-      answer: SELECT first_name, last_name, phone_number FROM customers WHERE state = 'AZ';
 5:
   title: Calculation Functions
   text: >
@@ -170,7 +169,7 @@
       answer: SELECT * FROM playlists WHERE name LIKE '%Classical%';
     - question: Find all tracks that have a name that contain 'way' anwhere within the name.
       answer: SELECT * FROM tracks WHERE name LIKE '%way%';
-      
+
 
 # aliasing columns
 # ordering asc, desc
